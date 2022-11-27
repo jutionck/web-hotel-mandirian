@@ -1,0 +1,81 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Book List</h1>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2">
+    <h6>Daftar Tamu Menginap</h6>
+    <div class="btn btn-outline-primary" routerLink="/backoffice/book/form"><i class="bi bi-plus"></i> Tambah</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead class="text-center">
+        <tr>
+          <th>BookingID</th>
+          <th>Nama Pemesan</th>
+          <th>Nomor Kamar</th>
+          <th>Durasi Menginap</th>
+          <th>Total Biaya</th>
+          <th>Jumlah Tamu</th>
+          <th>Status Pemesanan</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Amanda Raules</td>
+          <td>123</td>
+          <td>2 Malam</td>
+          <td>250,000</td>
+          <td>2</td>
+          <td>reserved</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-outline-success">Checkin</button>
+              <button class="btn btn-outline-secondary">Checkout</button>
+              <button class="btn btn-outline-warning">Edit</button>
+              <button class="btn btn-outline-danger">Hapus</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Nazar</td>
+          <td>124</td>
+          <td>1 Malam</td>
+          <td>100,000</td>
+          <td>1</td>
+          <td>checked-in</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-outline-success">Checkin</button>
+              <button class="btn btn-outline-secondary">Checkout</button>
+              <button class="btn btn-outline-warning">Edit</button>
+              <button class="btn btn-outline-danger">Hapus</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Soimah</td>
+          <td>125</td>
+          <td>10 Malam</td>
+          <td>1,000,000</td>
+          <td>3</td>
+          <td>checked-out</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-outline-success">Checkin</button>
+              <button class="btn btn-outline-secondary">Checkout</button>
+              <button class="btn btn-outline-warning">Edit</button>
+              <button class="btn btn-outline-danger">Hapus</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
