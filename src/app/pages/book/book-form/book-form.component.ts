@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { TOKEN } from 'src/app/auth/model/auth.model';
+import { SessionService } from 'src/app/shared/services/session.service';
 import { NIGHTLY_FEE } from 'src/app/shared/utils/nightly-fee.util';
 import { IBookFormComponent } from '../model/book-component.model';
 import { Book } from '../model/book.model';
@@ -21,6 +23,7 @@ export class BookFormComponent implements OnInit, IBookFormComponent {
   booking?: Book;
 
   constructor(
+    private readonly sessionService: SessionService,
     private readonly hotelService: HotelService,
     private readonly router: Router,
     private readonly route: ActivatedRoute,
@@ -69,7 +72,8 @@ export class BookFormComponent implements OnInit, IBookFormComponent {
           })
         }
       }
-    })
+    });
+    if (!this.sessionService.get(TOKEN)) this.router.navigateByUrl('/auth/login')
   }
 
   isFormValid(field: string): boolean {

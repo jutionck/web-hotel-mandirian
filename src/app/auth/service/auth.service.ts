@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { SessionService } from 'src/app/shared/services/session.service';
-import { Auth } from '../model/auth.model';
+import { Auth, TOKEN } from '../model/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class AuthService {
         const { username, password } = payload;
         if (username === 'admin@gmail.com' && password === 'password') {
           const token = 'enigma-123'
-          this.sessionService.set('token', JSON.stringify(token));
+          this.sessionService.set(TOKEN, JSON.stringify(token));
           observer.next(token);
         } else {
           observer.next(null);

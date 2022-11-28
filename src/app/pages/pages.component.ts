@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TOKEN } from '../auth/model/auth.model';
 
 @Component({
   selector: 'app-pages',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onSignedOut(): void {
+    sessionStorage.removeItem(TOKEN);
+    this.router.navigateByUrl('');
   }
 
 }
