@@ -1,64 +1,19 @@
-<section id="login" class="login">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="card">
-          <div class="card-title">
-            <h3>Login</h3>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control {{ isFormValid('username') }}"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                  formControlName="username"
-                />
-                <label for="floatingInput">Username</label>
-                <app-validation-message
-                  [control]="form.get('username')"
-                  [field]="'username'"
-                ></app-validation-message>
-              </div>
-              <div class="form-floating">
-                <input
-                  [type]="'password'"
-                  class="form-control {{ isFormValid('password') }}"
-                  id="floatingPassword"
-                  placeholder="Password"
-                  formControlName="password"
-                />
-                <label for="floatingPassword">Password</label>
-                <div class="mb-3 mt-2 form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label class="form-check-label" for="exampleCheck1"
-                    >Password</label
-                  >
-                </div>
-                <app-validation-message
-                  [control]="form.get('password')"
-                  [field]="'password'"
-                ></app-validation-message>
-              </div>
-              <div class="d-grid gap-2 btn-login">
-                <button
-                  class="btn btn-outline-primary"
-                  type="submit"
-                  [disabled]="!form.valid"
-                >
-                  LOGIN
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section id="login" class="bg-img">
+  <div class="content">
+    <header>Hotel Mandirian</header>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+       <div class="field">
+          <span class="bi bi-lock"></span>
+          <input type="text" required placeholder="Email" formControlName="username">
+       </div>
+       <div class="field space">
+          <span class="bi bi-key"></span>
+          <input [type]="showPassword ? 'text' : 'password'" class="pass-key" required placeholder="Password" formControlName="password">
+          <span class="show" (click)="onShowPassword()">SHOW</span>
+       </div>
+       <div class="mt-3">
+          <button class="btn-login" [disabled]="!form.valid">LOGIN</button>
+       </div>
+    </form>
+ </div>
 </section>

@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from '../../service/auth.service';
 
 @Component({
@@ -14,6 +15,7 @@ import { AuthService } from '../../service/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  showPassword: boolean = false;
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router
@@ -26,6 +28,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  onShowPassword(): void {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit(): void {
     const payload = this.form.value;
     this.authService.login(payload).subscribe({
@@ -33,7 +39,11 @@ export class LoginComponent implements OnInit {
         if (token) {
           this.router.navigateByUrl('backoffice');
         } else {
-          alert('username atau password salah');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email atau Password salah',
+          });
         }
       },
       error: (error) => {

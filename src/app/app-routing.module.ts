@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './template/components/landing/landing.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: LandingComponent
-  },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule)
@@ -14,6 +9,11 @@ const routes: Routes = [
   {
     path: 'backoffice',
     loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule)
+  },
+  {
+    path: '',
+    redirectTo: '/auth/login',
+    pathMatch: 'full'
   }
 ];
 
